@@ -12,22 +12,12 @@ PYTEST_ARGS = {
     'fast': ['tests', '-q'],
 }
 
-FLAKE8_ARGS = ['rest_framework_recursive', 'tests', '--ignore=E501']
-
-
 sys.path.append(os.path.dirname(__file__))
 
 
 def exit_on_failure(ret, message=None):
     if ret:
         sys.exit(ret)
-
-
-def flake8_main(args):
-    print('Running flake8 code linting')
-    ret = subprocess.call(['flake8'] + args)
-    print('flake8 failed' if ret else 'flake8 passed')
-    return ret
 
 
 def split_class_and_function(string):
@@ -47,13 +37,6 @@ def is_class(string):
 
 if __name__ == "__main__":
     try:
-        sys.argv.remove('--nolint')
-    except ValueError:
-        run_flake8 = True
-    else:
-        run_flake8 = False
-
-    try:
         sys.argv.remove('--lintonly')
     except ValueError:
         run_tests = True
@@ -66,7 +49,6 @@ if __name__ == "__main__":
         style = 'default'
     else:
         style = 'fast'
-        run_flake8 = False
 
     if len(sys.argv) > 1:
         pytest_args = sys.argv[1:]
@@ -87,5 +69,3 @@ if __name__ == "__main__":
 
     if run_tests:
         exit_on_failure(pytest.main(pytest_args))
-    if run_flake8:
-        exit_on_failure(flake8_main(FLAKE8_ARGS))
