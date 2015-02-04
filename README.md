@@ -32,7 +32,7 @@ class TreeSerializer(serializers.Serializer):
     children = serializers.ListField(child=RecursiveField())
 ```
 
-see [tests][here] for more usage examples
+see [here][tests] for more usage examples
 
 ## Testing
 
