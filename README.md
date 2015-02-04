@@ -11,7 +11,7 @@ Recursive Serialization for Django REST framework
 
 * Python (2.7, 3.3, 3.4)
 * Django (1.6, 1.7)
-* Django REST Framework (2.4.3, 2.4.4, 3.0-beta)
+* Django REST Framework (3.0)
 
 ## Installation
 
@@ -23,7 +23,16 @@ $ pip install djangorestframework-recursive
 
 ## Example
 
-TODO: Write example.
+```python
+from rest_framework import serializers
+from rest_framework_recursive.fields import RecursiveField
+
+class TreeSerializer(serializers.Serializer):
+    name = serializers.CharField()
+    children = serializers.ListField(child=RecursiveField())
+```
+
+see [tests][here] for more usage examples
 
 ## Testing
 
@@ -45,29 +54,9 @@ You can also use the excellent [tox](http://tox.readthedocs.org/en/latest/) test
 $ tox
 ```
 
-## Documentation
-
-To build the documentation, you'll need to install `mkdocs`.
-
-```bash
-$ pip install mkdocs
-```
-
-To preview the documentation:
-
-```bash
-$ mkdocs serve
-Running at: http://127.0.0.1:8000/
-```
-
-To build the documentation:
-
-```bash
-$ mkdocs build
-```
-
 
 [build-status-image]: https://secure.travis-ci.org/heywbj/django-rest-framework-recursive.png?branch=master
 [travis]: http://travis-ci.org/heywbj/django-rest-framework-recursive?branch=master
 [pypi-version]: https://pypip.in/version/djangorestframework-recursive/badge.svg
 [pypi]: https://pypi.python.org/pypi/djangorestframework-recursive
+[tests]: https://github.com/heywbj/django-rest-framework-recursive/blob/master/tests/test_recursive.py
