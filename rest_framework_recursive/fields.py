@@ -58,7 +58,7 @@ class RecursiveField(Field):
         super_kwargs = dict(
             (key, kwargs[key])
             for key in kwargs
-            if key in inspect.getargspec(Field.__init__)
+            if key in inspect.getargspec(Field.__init__).args
         )
         super(RecursiveField, self).__init__(**super_kwargs)
 
