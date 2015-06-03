@@ -1,5 +1,5 @@
 import inspect
-from django.utils import importlib
+import importlib
 from rest_framework.fields import Field
 from rest_framework.serializers import BaseSerializer
 
