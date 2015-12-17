@@ -13,6 +13,11 @@ class NodeSerializer(serializers.Serializer):
     children = serializers.ListField(child=RecursiveField())
 
 
+class ManyNullSerializer(serializers.Serializer):
+    name = serializers.CharField()
+    children = RecursiveField(required=False, allow_null=True, many=True)
+
+
 class PingSerializer(serializers.Serializer):
     ping_id = serializers.IntegerField()
     pong = RecursiveField('PongSerializer', required=False)
@@ -93,6 +98,29 @@ class TestRecursiveField:
 
         self.serialize(NodeSerializer, value)
         self.deserialize(NodeSerializer, value)
+
+    def test_many_null_serializer(self):
+        """Test that allow_null is propagated when many=True"""
+
+        # Children is omitted from the root node
+        value = {
+            'name': 'root'
+        }
+
+        self.serialize(ManyNullSerializer, value)
+        self.deserialize(ManyNullSerializer, value)
+
+        # Children is omitted from the child nodes
+        value2 = {
+            'name': 'root',
+            'children':[
+                {'name': 'child1'},
+                {'name': 'child2'},
+            ]
+        }
+
+        self.serialize(ManyNullSerializer, value2)
+        self.deserialize(ManyNullSerializer, value2)
 
     def test_ping_pong(self):
         pong = {
