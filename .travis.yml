@@ -3,14 +3,14 @@ language: python
 sudo: false
 
 env:
-    - TOX_ENV=py27-django1.6-drf3.0
-    - TOX_ENV=py27-django1.7-drf3.0
-    - TOX_ENV=py32-django1.6-drf3.0
-    - TOX_ENV=py32-django1.7-drf3.0
-    - TOX_ENV=py33-django1.6-drf3.0
-    - TOX_ENV=py33-django1.7-drf3.0
-    - TOX_ENV=py34-django1.6-drf3.0
-    - TOX_ENV=py34-django1.7-drf3.0
+    - TOX_ENV=py29-django1.8-drf3.3
+    - TOX_ENV=py29-django1.7-drf3.3
+    - TOX_ENV=py32-django1.8-drf3.3
+    - TOX_ENV=py32-django1.9-drf3.3
+    - TOX_ENV=py33-django1.8-drf3.3
+    - TOX_ENV=py33-django1.9-drf3.3
+    - TOX_ENV=py34-django1.8-drf3.3
+    - TOX_ENV=py34-django1.9-drf3.3
 
 matrix:
   fast_finish: true
