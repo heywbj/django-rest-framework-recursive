@@ -60,6 +60,6 @@ $ tox
 
 [build-status-image]: https://secure.travis-ci.org/heywbj/django-rest-framework-recursive.png?branch=master
 [travis]: http://travis-ci.org/heywbj/django-rest-framework-recursive?branch=master
-[pypi-version]: https://pypip.in/version/djangorestframework-recursive/badge.svg
+[pypi-version]: https://img.shields.io/pypi/v/djangorestframework-recursive.svg
 [pypi]: https://pypi.python.org/pypi/djangorestframework-recursive
 [tests]: https://github.com/heywbj/django-rest-framework-recursive/blob/master/tests/test_recursive.py
