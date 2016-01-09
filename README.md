@@ -12,9 +12,9 @@ linked list, or even a directed acyclic graph.
 
 ## Requirements
 
-* Python (2.7, 3.3, 3.4)
-* Django (1.6, 1.7)
-* Django REST Framework (3.0)
+* Python (Tested on 2.7, 3.4)
+* Django (Tested on 1.8, 1.9)
+* Django REST Framework (Tested on 3.3)
 
 ## Installation
 
