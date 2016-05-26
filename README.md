@@ -8,21 +8,9 @@
 Recursive Serialization for Django REST framework
 
 This package provides a `RecursiveField` that enables you to serialize a tree,
-linked list, or even a directed acyclic graph. 
+linked list, or even a directed acyclic graph. Also supports validation, 
+deserialization, ModelSerializers, and multi-step recursive structures.
 
-## Requirements
-
-* Python (Tested on 2.7, 3.4)
-* Django (Tested on 1.8, 1.9)
-* Django REST Framework (Tested on 3.3)
-
-## Installation
-
-Install using `pip`...
-
-```bash
-$ pip install djangorestframework-recursive
-```
 
 ## Example
 
@@ -35,7 +23,24 @@ class TreeSerializer(serializers.Serializer):
     children = serializers.ListField(child=RecursiveField())
 ```
 
-see [here][tests] for more usage examples
+see [**here**][tests] for more usage examples
+
+
+## Requirements
+
+* Python (Tested on 2.7, 3.4)
+* Django (Tested on 1.8, 1.9)
+* Django REST Framework (Tested on 3.3)
+
+
+## Installation
+
+Install using `pip`...
+
+```bash
+$ pip install djangorestframework-recursive
+```
+
 
 ## Testing
 
