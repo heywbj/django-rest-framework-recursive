@@ -217,7 +217,7 @@ class TestRecursiveField:
 
     def test_super_kwargs(self):
         """RecursiveField.__init__ introspect the parent constructor to pass
-        kwargs properly. read_only is used used here to verify that the
+        kwargs properly. default is used used here to verify that the
         argument is properly passed to the super Field."""
         field = RecursiveField(default='a default value')
         assert field.default == 'a default value'
