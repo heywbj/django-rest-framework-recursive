@@ -3,6 +3,18 @@ import importlib
 from rest_framework.fields import Field
 from rest_framework.serializers import BaseSerializer
 
+
+def _signature_parameters(func):
+    try:
+        inspect.signature
+    except AttributeError:
+        # Python 2.x
+        return inspect.getargspec(func).args
+    else:
+        # Python 3.x
+        return inspect.signature(func).parameters.keys()
+
+
 class RecursiveField(Field):
     """
     A field that gets its representation from its parent.
@@ -58,7 +70,7 @@ class RecursiveField(Field):
         super_kwargs = dict(
             (key, kwargs[key])
             for key in kwargs
-            if key in inspect.getargspec(Field.__init__).args
+            if key in _signature_parameters(Field.__init__)
         )
         super(RecursiveField, self).__init__(**super_kwargs)
 
