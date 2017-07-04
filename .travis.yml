@@ -1,4 +1,6 @@
 language: python
+python:
+    - "3.6"
 
 sudo: false
 
@@ -12,15 +14,21 @@ env:
     - TOX_ENV=py27-django1.10-drf3.3
     - TOX_ENV=py27-django1.10-drf3.4
     - TOX_ENV=py27-django1.10-drf3.5
-    - TOX_ENV=py34-django1.8-drf3.3
-    - TOX_ENV=py34-django1.8-drf3.4
-    - TOX_ENV=py34-django1.8-drf3.5
-    - TOX_ENV=py34-django1.9-drf3.3
-    - TOX_ENV=py34-django1.9-drf3.4
-    - TOX_ENV=py34-django1.9-drf3.5
-    - TOX_ENV=py34-django1.10-drf3.3
-    - TOX_ENV=py34-django1.10-drf3.4
-    - TOX_ENV=py34-django1.10-drf3.5
+    - TOX_ENV=py36-django1.8-drf3.3
+    - TOX_ENV=py36-django1.8-drf3.4
+    - TOX_ENV=py36-django1.8-drf3.5
+    - TOX_ENV=py36-django1.9-drf3.3
+    - TOX_ENV=py36-django1.9-drf3.4
+    - TOX_ENV=py36-django1.9-drf3.5
+    - TOX_ENV=py36-django1.9-drf3.6
+    - TOX_ENV=py36-django1.10-drf3.3
+    - TOX_ENV=py36-django1.10-drf3.4
+    - TOX_ENV=py36-django1.10-drf3.5
+    - TOX_ENV=py36-django1.10-drf3.6
+    - TOX_ENV=py36-django1.11-drf3.3
+    - TOX_ENV=py36-django1.11-drf3.4
+    - TOX_ENV=py36-django1.11-drf3.5
+    - TOX_ENV=py36-django1.11-drf3.6
 
 matrix:
   fast_finish: true
