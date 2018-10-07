@@ -41,7 +41,7 @@ class SillySerializer(serializers.Serializer):
 
 class RecursiveModel(models.Model):
     name = models.CharField(max_length=255)
-    parent = models.ForeignKey('self', null=True)
+    parent = models.ForeignKey('self', null=True, on_delete=models.CASCADE)
 
 
 class RecursiveModelSerializer(serializers.ModelSerializer):
