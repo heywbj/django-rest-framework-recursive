@@ -46,7 +46,7 @@ $ pip install djangorestframework-recursive
 ### 0.1.2
 * This is the first release to include release notes.
 * Use inspect.signature when available. This avoids emitting deprecation warnings on Python 3.
-* Updated CI versions. djangoreestframework-recursive is now tested against DRF
+* Updated CI versions. djangorestframework-recursive is now tested against DRF
   3.3-3.6, Python 2.7 and 3.6 and Django 1.8-1.11.
 
 ## Testing
