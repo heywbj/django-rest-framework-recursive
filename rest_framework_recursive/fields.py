@@ -87,20 +87,24 @@ class RecursiveField(Field):
 
                 if hasattr(parent, 'child') and parent.child is self:
                     # RecursiveField nested inside of a ListField
-                    parent_class = parent.parent.__class__
+                    resolved_parent = parent.parent
                 else:
                     # RecursiveField directly inside a Serializer
-                    parent_class = parent.__class__
-
-                assert issubclass(parent_class, BaseSerializer)
+                    resolved_parent = parent
 
                 if self.to is None:
-                    proxied_class = parent_class
+                    assert isinstance(resolved_parent, BaseSerializer)
+                    proxied_class = resolved_parent.__class__
                 else:
                     try:
                         module_name, class_name = self.to.rsplit('.', 1)
                     except ValueError:
-                        module_name, class_name = parent_class.__module__, self.to
+                        assert resolved_parent, (
+                            'Could not automatically determine a parent '
+                            'class, specify a dotted to= path'
+                        )
+                        module_name = resolved_parent.__class__.__module__
+                        class_name = self.to
 
                     try:
                         proxied_class = getattr(
