@@ -1,19 +1,22 @@
-# djangorestframework-recursive
+# Django Rest Framework Recursive (Fork)
+
+This repository is the friendly fork of the original [django-rest-framework-recursive](https://github.com/heywbj/django-rest-framework-recursive) by [heywbj](https://github.com/heywbj). As the original repo is no longer being actively maintained, we've friendly forked it here to undertake on maintenance for modern versions of Python, Django, and Django Rest Framework.
 
 [![build-status-image]][travis]
 [![pypi-version]][pypi]
+
 
 ## Overview
 
 Recursive Serialization for Django REST framework
 
 This package provides a `RecursiveField` that enables you to serialize a tree,
-linked list, or even a directed acyclic graph. Also supports validation,
+linked list, or even a directed acyclic graph. It also supports validation,
 deserialization, ModelSerializers, and multi-step recursive structures.
 
+## Examples
 
-## Example
-
+### Tree Recursion
 ```python
 from rest_framework import serializers
 from rest_framework_recursive.fields import RecursiveField
@@ -23,7 +26,18 @@ class TreeSerializer(serializers.Serializer):
     children = serializers.ListField(child=RecursiveField())
 ```
 
-see [**here**][tests] for more usage examples
+### Linked List Recursion
+```python
+from rest_framework import serializers
+from rest_framework_recursive.fields import RecursiveField
+
+class LinkSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=25)
+    next = RecursiveField(allow_null=True)
+```
+
+
+Further use cases are documented in the tests, see [**here**][tests] for more usage examples
 
 
 ## Requirements
@@ -38,7 +52,7 @@ see [**here**][tests] for more usage examples
 Install using `pip`...
 
 ```bash
-$ pip install djangorestframework-recursive
+pip install djangorestframework-recursive
 ```
 
 ## Release notes
@@ -54,19 +68,19 @@ $ pip install djangorestframework-recursive
 Install testing requirements.
 
 ```bash
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Run with runtests.
 
 ```bash
-$ ./runtests.py
+python ./runtests.py
 ```
 
-You can also use the excellent [tox](http://tox.readthedocs.org/en/latest/) testing tool to run the tests against all supported versions of Python and Django. Install tox globally, and then simply run:
+You can also use [tox](http://tox.readthedocs.org/en/latest/) to run the tests against all supported versions of Python and Django. Install tox globally with `pip install tox`, and then simply run:
 
 ```bash
-$ tox
+tox
 ```
 
 
