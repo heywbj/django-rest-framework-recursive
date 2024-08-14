@@ -1,0 +1,4 @@
+# Example of a CODEOWNERS file
+
+# Specify owners for the entire repository
+* @nicholasbunn @isabellanorris
