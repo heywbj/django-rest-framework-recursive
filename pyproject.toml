@@ -26,7 +26,7 @@ name = "django-rest-framework-recursive"
 
 # Do not manually edit the version, use `make version_{type}` instead.
 # This should match the version in the [tool.bumpversion] section.
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
     "django>=3.2",
     "djangorestframework>=3.12.0",
@@ -137,7 +137,7 @@ filterwarnings = "error"
 [tool.bumpversion]
 # Do not manually edit the version, use `make version_{type}` instead.
 # This should match the version in the [project] section.
-current_version = "0.1.0"
+current_version = "0.2.0"
 parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
 serialize = ["{major}.{minor}.{patch}"]
 search = "{current_version}"
